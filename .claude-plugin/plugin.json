@@ -1,0 +1,8 @@
+{
+  "name": "council",
+  "version": "0.1.0",
+  "description": "Multi-agent dev council: cost triage, planning, sub-agent debates with decisions (ADR), rejection logs, Gemini as an additional voice.",
+  "author": { "name": "Bartosz Wolak", "url": "https://github.com/bwolak94" },
+  "license": "MIT",
+  "keywords": ["multi-agent", "council", "adr", "gemini", "planning", "cost-routing"]
+}
