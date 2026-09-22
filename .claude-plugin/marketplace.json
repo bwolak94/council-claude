@@ -1,0 +1,7 @@
+{
+  "name": "bwolak-local",
+  "owner": { "name": "Bartosz Wolak" },
+  "plugins": [
+    { "name": "council", "source": "./", "description": "Multi-agent dev council" }
+  ]
+}
