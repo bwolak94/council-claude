@@ -1,0 +1,23 @@
+{
+  "tiers": {
+    "S":  { "desc": "1 file, no design decision (typo, rename, simple fix)",
+            "planner": null, "implementer": "haiku", "reviewer": "haiku", "tester": null,
+            "council": false, "rounds": 0, "members": {}, "judge": null, "gemini": "off" },
+    "M":  { "desc": "2-5 files within a module, 0-1 design decision",
+            "planner": "sonnet", "implementer": "sonnet", "reviewer": "haiku", "tester": "haiku",
+            "council": false, "rounds": 1, "members": { "architect": "sonnet", "skeptic": "haiku" }, "judge": "sonnet", "gemini": "off" },
+    "L":  { "desc": "cross-cutting changes, new module, API/schema change, security",
+            "planner": "opus", "implementer": "sonnet", "reviewer": "sonnet", "tester": "sonnet",
+            "council": true, "rounds": 2, "members": { "architect": "sonnet", "skeptic": "sonnet", "pragmatist": "haiku" }, "judge": "opus", "gemini": "second-opinion" },
+    "XL": { "desc": "architecture, migrations, irreversible decisions, >15 files",
+            "planner": "opus", "implementer": "sonnet", "reviewer": "opus", "tester": "sonnet",
+            "council": true, "rounds": 3, "members": { "architect": "opus", "skeptic": "sonnet", "pragmatist": "sonnet" }, "judge": "opus", "gemini": "on" }
+  },
+  "escalation": {
+    "irreversible": "L",
+    "rules": ["DB schema change / data migration => min L", "public API / contract => min L", "auth, payments, personal data => min L", "no tests in the affected area => +1 tier for reviewer"]
+  },
+  "limits": { "maxRounds": 3, "earlyStopConfidence": 0.75, "maxFixLoops": 2, "maxParallelAgents": 4 },
+  "always": { "triage": "haiku", "scribe": "haiku", "gemini-bridge": "haiku" },
+  "gemini": { "model": "gemini-2.5-pro", "fastModel": "gemini-2.5-flash", "backend": "auto" }
+}
